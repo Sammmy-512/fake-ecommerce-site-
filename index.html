@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Backpack Store</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .main-container {
+      display: flex;
+      gap: 2rem;
+      max-width: 900px;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .product-image {
+      width: 350px;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      max-width: 400px;
+    }
+
+    .product-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #e74c3c;
+    }
+
+    .product-description {
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quantity-btn {
+      width: 30px;
+      height: 30px;
+      background: #3498db;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .quantity-btn:hover {
+      background: #2980b9;
+    }
+
+    #quantity-display {
+      min-width: 30px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    #addon-select {
+      padding: 0.5rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .order-summary {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 1.5rem;
+      width: 100%;
+    }
+
+    .order-summary h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+      border-bottom: 1px solid #dee2e6;
+      padding-bottom: 0.5rem;
+    }
+
+    .summary-line {
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .total-line {
+      font-weight: bold;
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid #dee2e6;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="product-image-container">
+      <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Smart Backpack" class="product-image">
+    </div>
+
+    <div class="product-info">
+      <h1 class="product-title">Smart Travel Backpack</h1>
+      <div class="product-price">$89.99</div>
+
+      <p class="product-description">
+        A high-tech backpack with built-in GPS tracking, USB charging port, and anti-theft protection. 
+        Perfect for travelers and commuters who want security and convenience.
+      </p>
+
+      <label for="quantity-control">Select quantity:</label>
+      <div class="quantity-control" id="quantity-control">
+        <button class="quantity-btn" id="decrease-btn">-</button>
+        <span id="quantity-display">1</span>
+        <button class="quantity-btn" id="increase-btn">+</button>
+      </div>
+
+      <label for="addon-select">Upgrade Options:</label>
+      <select id="addon-select">
+        <option value="None">None</option>
+        <option value="Solar Panel +$25.00">Solar Panel Charging +$25.00</option>
+        <option value="Premium Lock +$15.00">Premium Anti-Theft Lock +$15.00</option>
+      </select>
+
+      <div class="order-summary hidden" id="order-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-line" id="base-cost">Base Cost: $0.00</div>
+        <div class="summary-line" id="addon-cost">Upgrade Cost: $0.00</div>
+        <div class="summary-line" id="subtotal">Subtotal: $0.00</div>
+        <div class="summary-line" id="tax">Tax (13%): $0.00</div>
+        <div class="total-line" id="total">Total: $0.00</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
